@@ -12,8 +12,62 @@ class BinarySearchTest {
     void setUp() throws Exception {}
 
     @Test
-    void test() {
-        fail("Not yet implemented");
+    void searchForElem_singleElemSequence_elemFound(){
+        int key = 1;
+        int[] seq = {1};
+
+        SearchResult sr = BinarySearch.search(key, seq);
+
+        assert sr.isFound() && seq[sr.getPosition()] == key;
     }
 
+    @Test
+    void searchForElem_singleElemSequence_elemNotFound(){
+        int key = 2;
+        int[] seq = {1};
+
+        SearchResult sr = BinarySearch.search(key, seq);
+
+        assert !sr.isFound() && sr.getPosition() == -1;
+    }
+
+    @Test
+    void searchForElem_multiElemSequence_elemFound_firstPos(){
+        int key = 1;
+        int[] seq = {1, 2, 3, 4, 5};
+
+        SearchResult sr = BinarySearch.search(key, seq);
+
+        assert sr.isFound() && seq[sr.getPosition()] == key;
+    }
+
+    @Test
+    void searchForElem_multiElemSequence_elemFound_lastPos(){
+        int key = 5;
+        int[] seq = {1, 2, 3, 4, 5};
+
+        SearchResult sr = BinarySearch.search(key, seq);
+
+        assert sr.isFound() && seq[sr.getPosition()] == key;
+    }
+
+    @Test
+    void searchForElem_multiElemSequence_elemFound_middlePos(){
+        int key = 3;
+        int[] seq = {1, 2, 3, 4, 5};
+
+        SearchResult sr = BinarySearch.search(key, seq);
+
+        assert sr.isFound() && seq[sr.getPosition()] == key;
+    }
+
+    @Test
+    void searchForElem_multiElemSequence_elemNotFound(){
+        int key = 6;
+        int[] seq = {1, 2, 3, 4, 5};
+
+        SearchResult sr = BinarySearch.search(key, seq);
+
+        assert !sr.isFound() && sr.getPosition() == -1;
+    }
 }
