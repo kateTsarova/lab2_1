@@ -19,7 +19,7 @@ class BinarySearchTest {
 
         SearchResult sr = BinarySearch.search(key, seq);
 
-        assert sr.isFound() && seq[sr.getPosition()] == key;
+        Assertions.assertTrue(sr.isFound() && seq[sr.getPosition()] == key);
     }
 
     @Test
@@ -29,7 +29,7 @@ class BinarySearchTest {
 
         SearchResult sr = BinarySearch.search(key, seq);
 
-        assert !sr.isFound() && sr.getPosition() == -1;
+        Assertions.assertTrue(!sr.isFound() && sr.getPosition() == -1);
     }
 
     @Test
@@ -39,7 +39,7 @@ class BinarySearchTest {
 
         SearchResult sr = BinarySearch.search(key, seq);
 
-        assert sr.isFound() && seq[sr.getPosition()] == key;
+        Assertions.assertTrue(sr.isFound() && seq[sr.getPosition()] == key);
     }
 
     @Test
@@ -49,7 +49,7 @@ class BinarySearchTest {
 
         SearchResult sr = BinarySearch.search(key, seq);
 
-        assert sr.isFound() && seq[sr.getPosition()] == key;
+        Assertions.assertTrue(sr.isFound() && seq[sr.getPosition()] == key);
     }
 
     @Test
@@ -59,7 +59,7 @@ class BinarySearchTest {
 
         SearchResult sr = BinarySearch.search(key, seq);
 
-        assert sr.isFound() && seq[sr.getPosition()] == key;
+        Assertions.assertTrue(sr.isFound() && seq[sr.getPosition()] == key);
     }
 
     @Test
@@ -69,7 +69,7 @@ class BinarySearchTest {
 
         SearchResult sr = BinarySearch.search(key, seq);
 
-        assert !sr.isFound() && sr.getPosition() == -1;
+        Assertions.assertTrue(!sr.isFound() && sr.getPosition() == -1);
     }
 
     @Test
@@ -79,7 +79,7 @@ class BinarySearchTest {
 
         SearchResult sr = BinarySearch.search(key, seq);
 
-        assert !sr.isFound() && sr.getPosition() == -1;
+        Assertions.assertTrue(!sr.isFound() && sr.getPosition() == -1);
     }
 
     @Test
@@ -89,14 +89,7 @@ class BinarySearchTest {
 
         SearchResult sr = BinarySearch.search(key, seq);
 
-        assert !sr.isFound() && sr.getPosition() == -1;
+        Assertions.assertTrue(!sr.isFound() && sr.getPosition() == -1);
     }
 
-    @Test
-    void checkExceptions_zeroLengthArray() {
-        int key = 1;
-        int[] seq = new int[0];
-
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {BinarySearch.search(key, seq);});
-    }
 }
