@@ -2,6 +2,7 @@ package edu.iis.mto.bsearch;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -62,12 +63,40 @@ class BinarySearchTest {
     }
 
     @Test
-    void searchForElem_multiElemSequence_elemNotFound(){
+    void searchForElem_multiElemSequence_elemNotFound_elemBiggerThenMax(){
         int key = 6;
         int[] seq = {1, 2, 3, 4, 5};
 
         SearchResult sr = BinarySearch.search(key, seq);
 
         assert !sr.isFound() && sr.getPosition() == -1;
+    }
+
+    @Test
+    void searchForElem_multiElemSequence_elemNotFound_elemSmallerThenMin(){
+        int key = 0;
+        int[] seq = {1, 2, 3, 4, 5};
+
+        SearchResult sr = BinarySearch.search(key, seq);
+
+        assert !sr.isFound() && sr.getPosition() == -1;
+    }
+
+    @Test
+    void searchForElem_multiElemSequence_elemNotFound_elemInMiddlePos(){
+        int key = 3;
+        int[] seq = {1, 2, 4, 5};
+
+        SearchResult sr = BinarySearch.search(key, seq);
+
+        assert !sr.isFound() && sr.getPosition() == -1;
+    }
+
+    @Test
+    void checkExceptions_zeroLengthArray() {
+        int key = 1;
+        int[] seq = new int[0];
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {BinarySearch.search(key, seq);});
     }
 }
